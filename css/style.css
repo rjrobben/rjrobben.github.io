@@ -35,3 +35,11 @@ footer {
     padding: 10px;
     width: 100%;
 }
+
+.publication-info {
+    font-size: 0.9em;
+    color: #666;
+    font-style: italic;
+    margin-top: -10px;
+    margin-bottom: 20px;
+}
