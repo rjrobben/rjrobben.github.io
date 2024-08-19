@@ -43,3 +43,10 @@ footer {
     margin-top: -10px;
     margin-bottom: 20px;
 }
+
+#header-placeholder::before {
+    content: 'Loading...';
+    display: block;
+    padding: 10px;
+    text-align: center;
+}
