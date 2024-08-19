@@ -6,19 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About this Blog</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="preload" href="/components/header.html" as="fetch" crossorigin="anonymous">
 </head>
 
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div id="header-placeholder"></div>
     <main>
         <h1>HKLawsearcher</h1>
         <p>A search engine for Hong Kong Ordinance, allowing users to search through natural language queries. Visit the website at <a href="https://hklawsearcher.vercel.app/">https://hklawsearcher.vercel.app/</a>.</p>
@@ -26,6 +18,15 @@
     <footer>
         <p>&copy; 2024 Gluckchen</p>
     </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch('/components/header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header-placeholder').innerHTML = data;
+                });
+        });
+    </script>
 </body>
 
 </html>

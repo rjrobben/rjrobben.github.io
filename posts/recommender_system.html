@@ -6,19 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>First Blog Post - My Simple Blog</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="preload" href="/components/header.html" as="fetch" crossorigin="anonymous">
 </head>
 
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="../pages/about.html">About</a></li>
-                <li><a href="../pages/projects.html">Projects</a></li>
-                <li><a href="../pages/contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div id="header-placeholder"></div>
     <main>
         <article>
             <h1>The power of Recommender Systems</h1>
@@ -64,6 +56,15 @@
     <footer>
         <p>&copy; 2024 Gluckchen</p>
     </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch('/components/header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header-placeholder').innerHTML = data;
+                });
+        });
+    </script>
 </body>
 
 </html>
