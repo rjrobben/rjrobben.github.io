@@ -4,31 +4,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About this Blog</title>
+    <title>Projects - My Simple Blog</title>
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="preload" href="/components/header.html" as="fetch" crossorigin="anonymous">
 </head>
 
 <body>
-    <div id="header-placeholder"></div>
+    <header>
+        <div class="brand-name">RAY YIP</div>
+        <button id="nav-toggle" aria-expanded="false" aria-controls="main-nav">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav id="main-nav">
+            <ul>
+                <li><a href="/">Posts</a></li>
+                <li><a href="/pages/about.html">About</a></li>
+                <li><a href="/pages/projects.html">Projects</a></li>
+                <li><a href="/pages/contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
     <main>
-        <h1>HKLawsearcher</h1>
-        <p>A search engine for Hong Kong Ordinance, allowing users to search through natural language queries. Visit the website at <a href="https://hklawsearcher.vercel.app/">https://hklawsearcher.vercel.app/</a>.</p>
-        <h1>Bayesian Calculator</h1>
-        <p>A simple app for calculating Bayesian probability and logging beliefs. Visit the website at <a href="https://rjrobben.github.io/bayesian-thinker/">https://rjrobben.github.io/bayesian-thinker/</a>.</p>
+        <h3>LawBen</h3>
+        <p>A search engine for Hong Kong Cases and Ordinances, 
+            allowing users to search through natural language queries. 
+            Currently under development.
+            Visit the temporary prototype at 
+            <a href="https://causal-unicorn-partly.ngrok-free.app/">link</a>.</p>
     </main>
-    <footer>
-        <p>&copy; 2024 Gluckchen</p>
-    </footer>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            fetch('/components/header.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('header-placeholder').innerHTML = data;
-                });
-        });
-    </script>
+
+    <script src="../js/main.js"></script>
 </body>
 
 </html>

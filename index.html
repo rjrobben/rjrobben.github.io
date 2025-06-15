@@ -5,27 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ray Yip Blog</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="preload" href="/components/header.html" as="fetch" crossorigin="anonymous">
 </head>
 <body>
-    <div id="header-placeholder"></div>
+    <header>
+        <div class="brand-name">RAY YIP</div>
+        <button id="nav-toggle" aria-expanded="false" aria-controls="main-nav">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav id="main-nav">
+            <ul>
+                <li><a href="/">Posts</a></li>
+                <li><a href="/pages/about.html">About</a></li>
+                <li><a href="/pages/projects.html">Projects</a></li>
+                <li><a href="/pages/contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
     <main>
-        <article>
+        <article>            
+            <h2><a href="posts/lawben-search-methodology.html">Deep Research in Hong Kong Law - Part I</a></h2>
+            <p>Introduing Deep Research in searching Hong Kong law.</p>
             <h2><a href="posts/recommender_system.html">The power of Recommender Systems</a></h2>
             <p>Recommendation is fundamentally a search problem - finding relevant data.</p>
+
         </article>
     </main>
-    <footer>
-        <p>&copy; 2024 Gluckchen</p>
-    </footer>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            fetch('/components/header.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('header-placeholder').innerHTML = data;
-                });
-        });
-    </script>
+    <script src="js/main.js"></script>
 </body>
 </html>

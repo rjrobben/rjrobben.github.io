@@ -4,35 +4,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About this Blog</title>
+    <title>Contact Me - My Simple Blog</title>
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="preload" href="/components/header.html" as="fetch" crossorigin="anonymous">
 </head>
 
 <body>
-    <div id="header-placeholder"></div>
+    <header>
+        <div class="brand-name">RAY YIP</div>
+        <button id="nav-toggle" aria-expanded="false" aria-controls="main-nav">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav id="main-nav">
+            <ul>
+                <li><a href="/">Posts</a></li>
+                <li><a href="/pages/about.html">About</a></li>
+                <li><a href="/pages/projects.html">Projects</a></li>
+                <li><a href="/pages/contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
     <main>
         <h1>Contact Me!</h1>
         <p>If you'd like to get in touch with me, I can be reached through the following channels:</p>
         <ul>
-            <li><a href="https://github.com/rjrobben/" target="_blank">GitHub</a></li>
             <li><a href="mailto:rayipwm@gmail.com" target="_blank">rayipwm@gmail.com</a></li>
             <li><a href="https://www.linkedin.com/in/raymyip/" target="_blank">LinkedIn</a></li>
             <!-- Add more links as needed -->
         </ul>
     </main>
-    <footer>
-        <p>&copy; 2024 Gluckchen</p>
-    </footer>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            fetch('/components/header.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('header-placeholder').innerHTML = data;
-                });
-        });
-    </script>
+    <script src="../js/main.js"></script>
 </body>
 
 </html>

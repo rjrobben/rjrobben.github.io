@@ -4,13 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>First Blog Post - My Simple Blog</title>
+    <title>The power of Recommender Systems - My Simple Blog</title>
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="preload" href="/components/header.html" as="fetch" crossorigin="anonymous">
 </head>
 
 <body>
-    <div id="header-placeholder"></div>
+    <header>
+        <div class="brand-name">RAY YIP</div>
+        <button id="nav-toggle" aria-expanded="false" aria-controls="main-nav">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav id="main-nav">
+            <ul>
+                <li><a href="/">Posts</a></li>
+                <li><a href="/pages/about.html">About</a></li>
+                <li><a href="/pages/projects.html">Projects</a></li>
+                <li><a href="/pages/contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
     <main>
         <article>
             <h1>The power of Recommender Systems</h1>
@@ -53,18 +67,7 @@
             </p>
         </article>
     </main>
-    <footer>
-        <p>&copy; 2024 Gluckchen</p>
-    </footer>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            fetch('/components/header.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('header-placeholder').innerHTML = data;
-                });
-        });
-    </script>
+    <script src="../js/main.js"></script>
 </body>
 
 </html>
