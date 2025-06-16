@@ -107,7 +107,7 @@ async function processMarkdown(markdownFilePath) {
 </head>
 <body>
     <header>
-        <div class="brand-name">ray yip</div>
+        <div class="brand-name">ray 🥬</div>
         <button id="nav-toggle" aria-expanded="false" aria-controls="main-nav">
             <span></span>
             <span></span>
