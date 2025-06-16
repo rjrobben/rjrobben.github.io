@@ -160,10 +160,9 @@
             <section class="footnotes">
                 <ol class="footnotes-list">
                     <li id="fn1" class="footnote-item">
-                        <p>obviously, this maybe better solved by training a customized LLM, but I neither have the GPU
-                            resources nor the money and time to create and annotate the relevant datasets. More
-                            importantly, law is dynamically updated, retraining the LLM every now and then is not quite
-                            sensible at the time of this writing. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+                        <p>This maybe better solved in future with the <a href="https://arxiv.org/pdf/2403.00801v2">Self-Retrieval LLM</a>. 
+                            But not so possible currently, as law is dynamically updated, retraining the LLM every now and then is not quite
+                            sensible in terms of costs at the time of this writing.<a href="#fnref1" class="footnote-backref">↩︎</a></p>
                     </li>
                     <li id="fn2" class="footnote-item">
                         <p>pool of documents = Case Law + Legislations in Hong Kong. ~ 150k+ Case Law (~0.5 billion
@@ -172,7 +171,7 @@
                     </li>
                     <li id="fn3" class="footnote-item">
                         <p>Another approach is to boost the discriminative power of the embedding model over a larger
-                            set of documents. Pure ml approach. Problem: I don’t have so many gpu resources. <a
+                            set of documents. Pure ml approach. Problem: need ample gpu resources and high quality dataset. We will see if we can do this later.<a
                                 href="#fnref3" class="footnote-backref">↩︎</a></p>
                     </li>
                 </ol>
