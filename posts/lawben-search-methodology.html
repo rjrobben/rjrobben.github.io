@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deep Research in Hong Kong Law - Part I  </title>
+    <title>Deep Research in Hong Kong Law - Part I </title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
+
 <body>
     <header>
-        <div class="brand-name">RAY YIP</div>
+        <div class="brand-name">ray yip</div>
         <button id="nav-toggle" aria-expanded="false" aria-controls="main-nav">
             <span></span>
             <span></span>
@@ -30,96 +32,151 @@
                 <time datetime="2025-06-15T11:39:17.241Z">Published on June 15, 2025 at 7:39 PM</time>
             </p>
             <h2>Introduction</h2>
-<p>I always want to automate legal research. Because (1) I always have to do it as a legal student and (2) people often ask me about their legal problems which law school simply doesn't teach.</p>
-<p>In the era of AI, this very much sounds like a typical <a href="https://en.wikipedia.org/wiki/Retrieval-augmented_generation">RAG problem</a>. <sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
-<p>Now, I understand RAG in simple language as:</p>
-<blockquote>
-<p>A system that automatically CTRL-C and CTRL-V something relevant to the question and pass them to LLM for answer generation.</p>
-</blockquote>
-<p>In our context, we just need to copy the relevant legal principles from a corpus of legal rules, put them into a reasonably intelligent LLM, simple! right?</p>
-<p>Turns out it's not. When the pool of documents <sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup> is large, deciding what is relevant becomes a hard problem.</p>
-<p>Similarity search with vector embedding is the default position for most RAG system. But, you will note that embedding search has not yet replaced Google. Google will have for sure integrated it, but their search engine is clearly not built on a vector database. For</p>
-<ol>
-<li>performance issue,</li>
-<li>cost issue and</li>
-<li>that useful information retrieval is a complex field full of nuances.</li>
-</ol>
-<h2>The Problem Statement</h2>
-<p>Any legal advice to me involves a search problem. Given any legal related problem, the first part of the problem solving process is always finding which legal principles are relevant.</p>
-<p>Lawyers  will call this as identifying the issues. The first step is always identifying the relevant legal frameworks, before that no meaningful legal or factual issues can be laid out.</p>
-<p>But the question is: what is relevant?</p>
-<h2>What is relevant?</h2>
-<p>Relevance is multi-dimensional. Assume you carry with you 40g of cocaine, wishing to sell your friend in Thailand, get caught in the HK airport and are charged with Trafficking in Dangerous Drugs (“<strong>TDD</strong>”). You are now worrying how long you might have to spend on jail.</p>
-<p>A case can be relevant to your question for various reasons, and on different dimension:</p>
-<ol>
-<li>The age of the offender in that case is similar to you.</li>
-<li>The drug being trafficked is also cocaine</li>
-<li>The amount of cocaine trafficked is close to 40g</li>
-<li>It ruled on the general approach in determining usual sentence for Trafficking in Dangerous Drugs.</li>
-<li>It set out mitigating factors for reducing sentence generally</li>
-<li>It discussed aggravating factors for increasing sentence generally</li>
-<li>...</li>
-</ol>
-<p>Usually, my search strategy before any AI came out would look something like:</p>
-<ol>
-<li>Use keywords (e.g. the offence itself) to get a bunch of  TDD sentence judgments.</li>
-<li>Get a general idea of the sentence range by scanning through the cases.</li>
-<li>Stumble across a longer case which looks like a key case of the offence.</li>
-<li>Take note.</li>
-<li>Scans which case resembles the client’s case at hand, based on different criteria listed above.</li>
-<li>Check them out.</li>
-<li>Dig out some more cases cited in cases collected so far.</li>
-<li>Refine my search based on what I know so far.</li>
-</ol>
-<p>“What is relevant” cannot usually be determined with one single search. Instead, multiple search with different purposes has to be performed.</p>
-<h2>Proposed System</h2>
-<p>To simulate the human intelligence search. There are five main components that I can think of:</p>
-<ol>
-<li>keyword search</li>
-<li>semantic search</li>
-<li>filtering</li>
-<li>LLM to use (1) and (2) and (3)</li>
-<li>an orchestration framework that search incrementally</li>
-</ol>
-<h2>Eval-first</h2>
-<p>I am sold by <a href="https://eugeneyan.com/writing/llm-patterns/#retrieval-augmented-generation-to-add-knowledge">Eugene Yan</a> that:</p>
-<blockquote>
-<p>Building solid evals should be the starting point for any LLM-based system or product.</p>
-</blockquote>
-<p>Curating high quality evaluation dataset is costly. But, ~100 data points can already provide a less subjective evaluation of the system.</p>
-<p>The evaluation method I chose is the <a href="https://arxiv.org/pdf/2504.15068">Nugget Recall</a>. In simple terms, nugget is an atomic fact that should be included in an answer. Hence, we can measure the performance by counting how many “nuggets” an answer to a query contains compared to the standard list of nuggets curated by expert that should appear in relation to a query.</p>
-<img src="../img/blog_images/Screenshot%202025-06-13%20at%202.53.05%E2%80%AFPM.png" alt="nugget-recall">
-<h2>Filtering</h2>
-<p>The limitation of vector similarity search is that the bigger the search pool, the harder to retrieve relevant result.</p>
-<p>An intuitive explanation is that the bigger the document pool, the set of relevant documents become a smaller fraction of the total pool, and get easily crowded out by other marginally relevant results.</p>
-<p>The strategy we use to mitigate such limitation is simple: filtering<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup>. Based on the query or user input, the first step we should do is to narrow down the search space.</p>
-<p>There are multiple approaches for filtering that has come to my knowledge:</p>
-<ol>
-<li>Filter by Tag</li>
-<li>Semantic IDs</li>
-</ol>
-<p><em>Filter by Tag</em> by only picking cases with tag matching the target topic, judgment type, court or offence.</p>
-<p>But someone has to come up with the tags. Generating accurate and meaningful tag is feasible with LLM but relatively slow. Suppose it would take at least ~10s for 1 case to generate high-quality metadata. Now, 100K case means 1M seconds = 11 days, if performed consecutively!</p>
-<img src="../img/blog_images/Screenshot%202025-06-15%20at%204.51.34%E2%80%AFPM.png" alt="taxnomy-viewer" style="width: 65%;">
-<p><a href="https://arxiv.org/abs/2306.08121">Semantic IDs</a> is an interesting approach explored by Google Deepmind. A semantic ID is a compact numerical sequence representation of an item’s hierarchical information (e.g. an 8-byte sequence that captures 8 levels and 256 topics) using the trie concept . The representation is learned from the dense vector embedding of an item.</p>
-<img src="../img/blog_images/Screenshot%202025-06-15%20at%204.48.03%E2%80%AFPM.png" alt="trie">
-<p>Semantic IDs can be a machine learning based approach that is versatile and useful for many downstream tasks. However, traditional filtering by tag is stupid but efficient. So, we will first implement it and see how it performs.</p>
-<h2>Conclusion</h2>
-<p>In this article, I have discussed the problem I want to solve in legal research and outlined my approach the problem. In then next article, I will discuss the two of the other components of the system, i.e. keyword search and similarity search.</p>
-<hr class="footnotes-sep">
-<section class="footnotes">
-<ol class="footnotes-list">
-<li id="fn1" class="footnote-item"><p>obviously, this maybe better solved by training a customized LLM, but I neither have the GPU resources nor the money and time to create and annotate the relevant datasets. More importantly, law is dynamically updated, retraining the LLM every now and then is not quite sensible at the time of this writing. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn2" class="footnote-item"><p>pool of documents = Case Law + Legislations in Hong Kong. ~ 150k+ Case Law (~0.5 billion tokens) and ~300k+ legislative sections. <a href="#fnref2" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn3" class="footnote-item"><p>Another approach is to boost the discriminative power of the embedding model over a larger set of documents. Pure ml approach. Problem: I don’t have so many gpu resources. <a href="#fnref3" class="footnote-backref">↩︎</a></p>
-</li>
-</ol>
-</section>
+            <p>I always want to automate legal research. Because (1) I always have to do it as a legal student and (2)
+                people often ask me about their legal problems which law school simply doesn't teach.</p>
+            <p>In the era of AI, this very much sounds like a problem typical <a
+                    href="https://en.wikipedia.org/wiki/Retrieval-augmented_generation">RAG</a> can solve. <sup
+                    class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
+            <p>Now, I understand RAG in simple language as:</p>
+            <blockquote>
+                <p>A system that automatically CTRL-C and CTRL-V something relevant to the question and pass them to LLM
+                    for answer generation.</p>
+            </blockquote>
+            <img src="../img/blog_images/rj.png" alt="flowchat">
+            <p>In our context, we just need to copy the relevant legal principles from a corpus of legal rules, put them
+                into a reasonably intelligent LLM, simple! right?</p>
+            <p>Turns out it's not. When the pool of documents <sup class="footnote-ref"><a href="#fn2"
+                        id="fnref2">[2]</a></sup> is large, deciding what is relevant becomes a hard problem.</p>
+            <p>Similarity search with vector embedding is the default position for most RAG system. But, you will note
+                that embedding search has not yet replaced Google. Google will have for sure integrated it, but their
+                search engine is clearly not built on a vector database. For</p>
+            <ol>
+                <li>performance issue,</li>
+                <li>cost issue and</li>
+                <li>that useful information retrieval is a complex field full of nuances.</li>
+            </ol>
+            <h2>The Problem Statement</h2>
+            <p>Any legal advice to me involves a search problem. Given any legal related problem, the first part of the
+                problem solving process is always finding which legal principles are relevant.</p>
+            <p>Lawyers will call this as identifying the issues. The first step is always identifying the relevant legal
+                frameworks, before that no meaningful legal or factual issues can be laid out.</p>
+            <p>But the question is: what is relevant?</p>
+            <h2>What is relevant?</h2>
+            <p>Relevance is multi-dimensional. Assume you carry with you 40g of cocaine, wishing to sell your friend in
+                Thailand, get caught in the HK airport and are charged with Trafficking in Dangerous Drugs
+                (<strong>TDD</strong>). You are now worrying how long you might have to spend on jail.</p>
+
+            <img src="https://media.newyorker.com/photos/590954696552fa0be682cb13/master/w_1920,c_limit/breaking-bad-meth.jpg" alt="TDD illustration">
+            <p>A case can be relevant to your question for various reasons, and on different dimension:</p>
+            <ol>
+                <li>The age of the offender in that case is similar to you.</li>
+                <li>It sets out the latest sentencing guideline for TDD in cocaine.</li>
+                <li>It ruled on the general approach in determining sentence for TDD.</li>
+                <li>It sets out mitigating factors for reducing sentence generally.</li>
+                <li>It applied one of the mitigating factors present in your case.</li>
+                <li>It discussed aggravating factors for increasing sentence generally.</li>
+                <li>...</li>
+            </ol>
+            <p>Usually, my search strategy would look something like:</p>
+            <ol>
+                <li>Use keywords (e.g. the offence itself) to get a bunch of TDD sentence judgments.</li>
+                <li>Get a general idea of the sentence range by scanning through the cases.</li>
+                <li>Stumble across a longer case which looks like a key case of the offence.</li>
+                <li>Take note.</li>
+                <li>Scans which case resembles the client’s case at hand, based on different criteria listed above.</li>
+                <li>Check them out.</li>
+                <li>Dig out some more cases cited in cases collected so far.</li>
+                <li>Refine my search based on what I know so far.</li>
+            </ol>
+            <p>“What is relevant” cannot usually be determined with one single search. Instead, multiple search with
+                different purposes has to be performed.</p>
+            <h2>Proposed System</h2>
+            <p>To simulate the the human search. There are five main components that I can think of:</p>
+            <ol>
+                <li>keyword search</li>
+                <li>semantic search</li>
+                <li>filtering</li>
+                <li>LLM to use (1) and (2) and (3)</li>
+                <li>an orchestration framework that search incrementally</li>
+            </ol>
+            <p>Taking references from different deep research workflows proposed by a number of interesting projects, for example:</p>
+            <img src="../img/blog_images/02-fsm.png" alt="fsm">
+            <p class="caption">Image from Jina.ai, which I come across at <a href="https://leehanchung.github.io/blogs/2025/02/26/deep-research/">The Differences between Deep Research, Deep Research, and Deep Research</a></p>
+            <h2>Eval-first</h2>
+            <p>I am sold by <a
+                    href="https://eugeneyan.com/writing/llm-patterns/#retrieval-augmented-generation-to-add-knowledge">Eugene
+                    Yan</a> that:</p>
+            <blockquote>
+                <p>Building solid evals should be the starting point for any LLM-based system or product.</p>
+            </blockquote>
+            <p>Curating high quality evaluation dataset is costly. But, ~100 data points can already provide a less
+                subjective evaluation of the system.</p>
+            <p>The evaluation method I chose is the <a href="https://arxiv.org/pdf/2504.15068">Nugget Recall</a>. In
+                simple terms, nugget is an atomic fact that should be included in an answer. Hence, we can measure the
+                performance by counting how many “nuggets” an answer to a query contains compared to the standard list
+                of nuggets curated by expert that should appear in relation to a query.</p>
+            <img src="../img/blog_images/Screenshot%202025-06-13%20at%202.53.05%E2%80%AFPM.png" alt="nugget-recall">
+            <h2>Filtering</h2>
+            <p>The limitation of vector similarity search is that the bigger the search pool, the harder to retrieve
+                relevant result.</p>
+            <p>An intuitive explanation is that the bigger the document pool, the set of relevant documents become a
+                smaller fraction of the total pool, and get easily crowded out by other marginally relevant results.</p>
+            <img src="../img/blog_images/scatter_plot.png" alt="scatter_plot">
+            <p>The strategy we use to mitigate such limitation is simple: filtering<sup class="footnote-ref"><a
+                        href="#fn3" id="fnref3">[3]</a></sup>. Based on the query or user input, the first step we
+                should do is to narrow down the search space.</p>
+            <p>There are multiple approaches for efficient filtering that has come to my knowledge:</p>
+            <ol>
+                <li>Filter by Tag</li>
+                <li>Semantic IDs</li>
+            </ol>
+            <p><em>Filter by Tag</em> by only picking cases with tag matching the target topic, judgment type, court or
+                offence.</p>
+            <p>But someone has to come up with the tags. Generating accurate and meaningful tag is feasible with LLM but
+                relatively slow. Suppose it would take at least ~10s for 1 case to generate high-quality metadata. Now,
+                100K case means 1M seconds = 11 days, if performed consecutively!</p>
+            <img src="../img/blog_images/Screenshot%202025-06-15%20at%204.51.34%E2%80%AFPM.png" alt="taxnomy-viewer"
+                style="width: 65%;">
+            <p><a href="https://arxiv.org/abs/2306.08121">Semantic IDs</a> is an interesting approach explored by Google
+                Deepmind. A semantic ID is a compact numerical sequence representation of an item’s hierarchical
+                information (e.g. an 8-byte sequence that captures 8 levels and 256 topics) using the trie concept . The
+                representation is learned from the dense vector embedding of an item.</p>
+            <img src="../img/blog_images/Screenshot%202025-06-15%20at%204.48.03%E2%80%AFPM.png" alt="trie">
+            <p>The difference is: Semantic IDs can be a machine learning based approach that is very compact and efficient,
+                encoding the hierarchical relationship of the documents,
+                yet the effective use of it is still subject to further experiment;
+                whereas, traditional filtering by tag is simple but efficient, the mechanism is well supported by most production grade database.
+                So, we will first implement filtering by tag on a confined set of important judgments and
+                see how it performs.</p>
+            <h2>Conclusion</h2>
+            <p>In this article, I have discussed the problem I want to solve in legal research and outlined my approach
+                the problem. In then next article, I will discuss the two of the other components of the system, i.e.
+                keyword search and similarity search.</p>
+            <hr class="footnotes-sep">
+            <section class="footnotes">
+                <ol class="footnotes-list">
+                    <li id="fn1" class="footnote-item">
+                        <p>obviously, this maybe better solved by training a customized LLM, but I neither have the GPU
+                            resources nor the money and time to create and annotate the relevant datasets. More
+                            importantly, law is dynamically updated, retraining the LLM every now and then is not quite
+                            sensible at the time of this writing. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+                    </li>
+                    <li id="fn2" class="footnote-item">
+                        <p>pool of documents = Case Law + Legislations in Hong Kong. ~ 150k+ Case Law (~0.5 billion
+                            tokens) and ~300k+ legislative sections. <a href="#fnref2" class="footnote-backref">↩︎</a>
+                        </p>
+                    </li>
+                    <li id="fn3" class="footnote-item">
+                        <p>Another approach is to boost the discriminative power of the embedding model over a larger
+                            set of documents. Pure ml approach. Problem: I don’t have so many gpu resources. <a
+                                href="#fnref3" class="footnote-backref">↩︎</a></p>
+                    </li>
+                </ol>
+            </section>
 
         </article>
     </main>
     <script src="../js/main.js"></script>
 </body>
+
 </html>

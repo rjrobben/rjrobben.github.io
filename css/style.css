@@ -33,32 +33,42 @@ body {
 
 /* Header Navigation Toggle Styles */
 header {
-    display: flex; /* Allows alignment of toggle and nav */
-    justify-content: space-between; /* Pushes toggle and nav to opposite ends if nav is inline */
+    display: flex;
+    /* Allows alignment of toggle and nav */
+    justify-content: space-between;
+    /* Pushes toggle and nav to opposite ends if nav is inline */
     align-items: center;
     padding: 1rem;
     /* border-bottom: 1px solid #ddd; */
-    position: relative; /* Added for brand name positioning */
+    position: relative;
+    /* Added for brand name positioning */
 }
 
 .brand-name {
     position: absolute;
-    top: 1.5rem; /* Adjust as needed */
-    right: 2.5rem; /* Adjust as needed */
-    font-size: 1.2em; /* Adjust as needed */
-    font-weight: bold; /* Adjust as needed */
+    top: 1.5rem;
+    /* Adjust as needed */
+    right: 2.5rem;
+    /* Adjust as needed */
+    font-size: 1.2em;
+    /* Adjust as needed */
+    font-weight: bold;
+    /* Adjust as needed */
 }
 
 #nav-toggle {
-    display: block; /* Changed from inline to block for better control */
-    position: relative; /* For positioning spans if needed, or just for structure */
+    display: block;
+    /* Changed from inline to block for better control */
+    position: relative;
+    /* For positioning spans if needed, or just for structure */
     width: 30px;
     height: 24px;
     background: transparent;
     border: none;
     cursor: pointer;
     padding: 0;
-    z-index: 1001; /* Ensure it's above other header content if overlapping */
+    z-index: 1001;
+    /* Ensure it's above other header content if overlapping */
 }
 
 #nav-toggle span {
@@ -72,18 +82,23 @@ header {
 
 /* Basic styling for the main navigation menu */
 #main-nav {
-    display: none; /* Hidden by default */
-    width: 25%; /* Take full width for mobile-first dropdown */
-    position: absolute; /* Position it relative to the header or body */
-    top: 60px; /* Adjust based on header height */
+    display: none;
+    /* Hidden by default */
+    width: 25%;
+    /* Take full width for mobile-first dropdown */
+    position: absolute;
+    /* Position it relative to the header or body */
+    top: 60px;
+    /* Adjust based on header height */
     left: 0;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     background-color: #e9e9e9;
     z-index: 1000;
 }
 
 #main-nav.active {
-    display: block; /* Show when active */
+    display: block;
+    /* Show when active */
 }
 
 #main-nav ul {
@@ -101,7 +116,8 @@ header {
     padding: 0.75rem 1rem;
     text-decoration: none;
     color: #333;
-    border-bottom: 1px solid #eee; /* Separator for links */
+    border-bottom: 1px solid #eee;
+    /* Separator for links */
 }
 
 #main-nav ul li a:hover {
@@ -123,41 +139,67 @@ header {
 
 /* Main content and article styling */
 main {
-    padding: 1rem; /* Add some padding around the main content */
+    padding: 1rem;
+    /* Add some padding around the main content */
 }
 
 main article {
-    max-width: 800px; /* Set a max-width for the article content */
-    margin: 0 auto;   /* Center the article on the page */
-    padding: 1rem;    /* Add padding inside the article */
-    background-color: #ffffff; /* Optional: give article a background */
+    max-width: 800px;
+    /* Set a max-width for the article content */
+    margin: 0 auto;
+    /* Center the article on the page */
+    padding: 1rem;
+    /* Add padding inside the article */
+    background-color: #ffffff;
+    /* Optional: give article a background */
     /* border: 1px solid #e0e0e0; Optional: add a light border */
-    border-radius: 8px;       /* Optional: rounded corners */
-    font-size: 1.2rem; /* Base font size for article content */
-    line-height: 1.7;  /* Base line height for article content */
+    border-radius: 8px;
+    /* Optional: rounded corners */
+    font-size: 1.2rem;
+    /* Base font size for article content */
+    line-height: 1.7;
+    /* Base line height for article content */
 }
 
 /* Styles for images within article content */
 main article img {
-    max-width: 100%; /* Scale down to fit container */
-    height: auto;    /* Maintain aspect ratio */
-    display: block;  /* Remove extra space below image and allow margin auto to work */
-    margin: 1.5em auto; /* Center images and add some vertical space */
-    border-radius: 4px; /* Optional: slight rounding for images */
+    max-width: 100%;
+    /* Scale down to fit container */
+    height: auto;
+    /* Maintain aspect ratio */
+    display: block;
+    /* Remove extra space below image and allow margin auto to work */
+    margin: 1.5em auto;
+    /* Center images and add some vertical space */
+    border-radius: 4px;
+    /* Optional: slight rounding for images */
+}
+
+.caption {
+    text-align: center;
+    font-size: 0.9em;
+    color: #666;
+    margin-top: -10px;
+    margin-bottom: 20px;
+    font-style: italic;
 }
 
 /* Basic responsive adjustments for article content */
 @media (max-width: 768px) {
     main article {
-        margin: 0 05px; /* Reduce side margins on smaller screens */
+        margin: 0 05px;
+        /* Reduce side margins on smaller screens */
         padding: 0.75rem;
     }
 
     main article h1 {
-        font-size: 1.6rem; /* Adjust heading size for mobile */
+        font-size: 1.6rem;
+        /* Adjust heading size for mobile */
     }
 
-    main article p, main article li {
-        font-size: 1.1rem; /* Adjust paragraph text size for mobile */
+    main article p,
+    main article li {
+        font-size: 1.1rem;
+        /* Adjust paragraph text size for mobile */
     }
 }
