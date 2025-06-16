@@ -102,6 +102,8 @@
             <p>Taking references from different deep research workflows proposed by a number of interesting projects, for example:</p>
             <img src="../img/blog_images/02-fsm.png" alt="fsm">
             <p class="caption">Image from Jina.ai, which I come across at <a href="https://leehanchung.github.io/blogs/2025/02/26/deep-research/">The Differences between Deep Research, Deep Research, and Deep Research</a></p>
+            <img src="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F1198befc0b33726c45692ac40f764022f4de1bf2-4584x2579.png&w=3840&q=75" alt="anthropic deepsearch">
+            <p class="caption">Image from Anthropic at <a href="https://www.anthropic.com/engineering/built-multi-agent-research-system">Muti-Agent Research System</a></p>
             <h2>Eval-first</h2>
             <p>I am sold by <a
                     href="https://eugeneyan.com/writing/llm-patterns/#retrieval-augmented-generation-to-add-knowledge">Eugene
@@ -116,6 +118,7 @@
                 performance by counting how many “nuggets” an answer to a query contains compared to the standard list
                 of nuggets curated by expert that should appear in relation to a query.</p>
             <img src="../img/blog_images/Screenshot%202025-06-13%20at%202.53.05%E2%80%AFPM.png" alt="nugget-recall">
+            <p class="caption">Image from the linked paper.</p>
             <h2>Filtering</h2>
             <p>The limitation of vector similarity search is that the bigger the search pool, the harder to retrieve
                 relevant result.</p>
@@ -137,11 +140,12 @@
                 100K case means 1M seconds = 11 days, if performed consecutively!</p>
             <img src="../img/blog_images/Screenshot%202025-06-15%20at%204.51.34%E2%80%AFPM.png" alt="taxnomy-viewer"
                 style="width: 65%;">
-            <p><a href="https://arxiv.org/abs/2306.08121">Semantic IDs</a> is an interesting approach explored by Google
+            <p><a href="https://arxiv.org/abs/2306.08121"><em>Semantic IDs</em></a> is an interesting approach explored by Google
                 Deepmind. A semantic ID is a compact numerical sequence representation of an item’s hierarchical
                 information (e.g. an 8-byte sequence that captures 8 levels and 256 topics) using the trie concept . The
                 representation is learned from the dense vector embedding of an item.</p>
             <img src="../img/blog_images/Screenshot%202025-06-15%20at%204.48.03%E2%80%AFPM.png" alt="trie">
+            <p class="caption">Image from the linked paper.</p>
             <p>The difference is: Semantic IDs can be a machine learning based approach that is very compact and efficient,
                 encoding the hierarchical relationship of the documents,
                 yet the effective use of it is still subject to further experiment;
@@ -149,8 +153,8 @@
                 So, we will first implement filtering by tag on a confined set of important judgments and
                 see how it performs.</p>
             <h2>Conclusion</h2>
-            <p>In this article, I have discussed the problem I want to solve in legal research and outlined my approach
-                the problem. In then next article, I will discuss the two of the other components of the system, i.e.
+            <p>In this article, I have discussed the problem I want to solve in legal research and outlined my approach to
+                the problem. In the next article, I will discuss the two of the other components of the system, i.e.
                 keyword search and similarity search.</p>
             <hr class="footnotes-sep">
             <section class="footnotes">
