@@ -6,6 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Deep Research in Hong Kong Law - Part I </title>
     <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WDRGTN66BF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-WDRGTN66BF');
+    </script>
+
 </head>
 
 <body>
@@ -67,7 +78,8 @@
                 Thailand, get caught in the HK airport and are charged with Trafficking in Dangerous Drugs
                 (<strong>TDD</strong>). You are now worrying how long you might have to spend on jail.</p>
 
-            <img src="https://media.newyorker.com/photos/590954696552fa0be682cb13/master/w_1920,c_limit/breaking-bad-meth.jpg" alt="TDD illustration">
+            <img src="https://media.newyorker.com/photos/590954696552fa0be682cb13/master/w_1920,c_limit/breaking-bad-meth.jpg"
+                alt="TDD illustration">
             <p>A case can be relevant to your question for various reasons, and on different dimension:</p>
             <ol>
                 <li>The age of the offender in that case is similar to you.</li>
@@ -100,11 +112,17 @@
                 <li>LLM to use (1) and (2) and (3)</li>
                 <li>an orchestration framework that search incrementally</li>
             </ol>
-            <p>Taking references from different deep research workflows proposed by a number of interesting projects, for example:</p>
+            <p>Taking references from different deep research workflows proposed by a number of interesting projects,
+                for example:</p>
             <img src="../img/blog_images/02-fsm.png" alt="fsm">
-            <p class="caption">Image from Jina.ai, which I come across at <a href="https://leehanchung.github.io/blogs/2025/02/26/deep-research/">The Differences between Deep Research, Deep Research, and Deep Research</a></p>
-            <img src="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F1198befc0b33726c45692ac40f764022f4de1bf2-4584x2579.png&w=3840&q=75" alt="anthropic deepsearch">
-            <p class="caption">Image from Anthropic at <a href="https://www.anthropic.com/engineering/built-multi-agent-research-system">Muti-Agent Research System</a></p>
+            <p class="caption">Image from Jina.ai, which I come across at <a
+                    href="https://leehanchung.github.io/blogs/2025/02/26/deep-research/">The Differences between Deep
+                    Research, Deep Research, and Deep Research</a></p>
+            <img src="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F1198befc0b33726c45692ac40f764022f4de1bf2-4584x2579.png&w=3840&q=75"
+                alt="anthropic deepsearch">
+            <p class="caption">Image from Anthropic at <a
+                    href="https://www.anthropic.com/engineering/built-multi-agent-research-system">Muti-Agent Research
+                    System</a></p>
             <h2>Eval-first</h2>
             <p>I am sold by <a
                     href="https://eugeneyan.com/writing/llm-patterns/#retrieval-augmented-generation-to-add-knowledge">Eugene
@@ -141,29 +159,36 @@
                 100K case means 1M seconds = 11 days, if performed consecutively!</p>
             <img src="../img/blog_images/Screenshot%202025-06-15%20at%204.51.34%E2%80%AFPM.png" alt="taxnomy-viewer"
                 style="width: 65%;">
-            <p><a href="https://arxiv.org/abs/2306.08121"><em>Semantic IDs</em></a> is an interesting approach explored by Google
+            <p><a href="https://arxiv.org/abs/2306.08121"><em>Semantic IDs</em></a> is an interesting approach explored
+                by Google
                 Deepmind. A semantic ID is a compact numerical sequence representation of an item’s hierarchical
                 information (e.g. an 8-byte sequence that captures 8 levels and 256 topics) using the trie concept . The
                 representation is learned from the dense vector embedding of an item.</p>
             <img src="../img/blog_images/Screenshot%202025-06-15%20at%204.48.03%E2%80%AFPM.png" alt="trie">
             <p class="caption">Image from the linked paper.</p>
-            <p>The difference is: Semantic IDs can be a machine learning based approach that is very compact and efficient,
+            <p>The difference is: Semantic IDs can be a machine learning based approach that is very compact and
+                efficient,
                 encoding the hierarchical relationship of the documents,
                 yet the effective use of it is still subject to further experiment;
-                whereas, traditional filtering by tag is simple but efficient, the mechanism is well supported by most production grade database.
+                whereas, traditional filtering by tag is simple but efficient, the mechanism is well supported by most
+                production grade database.
                 So, we will first implement filtering by tag on a confined set of important judgments and
                 see how it performs.</p>
             <h2>Conclusion</h2>
-            <p>In this article, I have discussed the problem I want to solve in legal research and outlined my approach to
+            <p>In this article, I have discussed the problem I want to solve in legal research and outlined my approach
+                to
                 the problem. In the next article, I will discuss the two of the other components of the system, i.e.
                 keyword search and similarity search.</p>
             <hr class="footnotes-sep">
             <section class="footnotes">
                 <ol class="footnotes-list">
                     <li id="fn1" class="footnote-item">
-                        <p>This maybe better solved in future with the <a href="https://arxiv.org/pdf/2403.00801v2">Self-Retrieval LLM</a>. 
-                            But not so possible currently, as law is dynamically updated, retraining the LLM every now and then is not quite
-                            sensible in terms of costs at the time of this writing.<a href="#fnref1" class="footnote-backref">↩︎</a></p>
+                        <p>This maybe better solved in future with the <a
+                                href="https://arxiv.org/pdf/2403.00801v2">Self-Retrieval LLM</a>.
+                            But not so possible currently, as law is dynamically updated, retraining the LLM every now
+                            and then is not quite
+                            sensible in terms of costs at the time of this writing.<a href="#fnref1"
+                                class="footnote-backref">↩︎</a></p>
                     </li>
                     <li id="fn2" class="footnote-item">
                         <p>pool of documents = Case Law + Legislations in Hong Kong. ~ 150k+ Case Law (~0.5 billion
@@ -172,22 +197,18 @@
                     </li>
                     <li id="fn3" class="footnote-item">
                         <p>Another approach is to boost the discriminative power of the embedding model over a larger
-                            set of documents. Pure ml approach. Problem: need ample gpu resources and high quality dataset. We will see if we can do this later.<a
-                                href="#fnref3" class="footnote-backref">↩︎</a></p>
+                            set of documents. Pure ml approach. Problem: need ample gpu resources and high quality
+                            dataset. We will see if we can do this later.<a href="#fnref3"
+                                class="footnote-backref">↩︎</a></p>
                     </li>
                 </ol>
             </section>
-        <section class="comments-section">
-            <h2>Comments</h2>
-            <script src="https://utteranc.es/client.js"
-                    repo="rjrobben/rjrobben.github.io"
-                    issue-term="pathname"
-                    label="comment"
-                    theme="github-light"
-                    crossorigin="anonymous"
-                    async>
-            </script>
-        </section>
+            <section class="comments-section">
+                <h2>Comments</h2>
+                <script src="https://utteranc.es/client.js" repo="rjrobben/rjrobben.github.io" issue-term="pathname"
+                    label="comment" theme="github-light" crossorigin="anonymous" async>
+                    </script>
+            </section>
         </article>
     </main>
     <script src="../js/main.js"></script>

@@ -30,9 +30,9 @@ async function processMarkdown(markdownFilePath) {
         const imageRegex = /!\[(.*?)\]\((?!https?:\/\/)(.*?)\)/g;
         let match;
         const uniqueImages = new Map();
-        
+
         // Create a temporary string for regex matching to avoid issues with exec on a modified string
-        let markdownForImageExtraction = rawMarkdown; 
+        let markdownForImageExtraction = rawMarkdown;
         while ((match = imageRegex.exec(markdownForImageExtraction)) !== null) {
             const altText = match[1];
             const rawCapturedPath = match[2]; // Path exactly as captured from markdown, possibly with quotes
@@ -47,15 +47,15 @@ async function processMarkdown(markdownFilePath) {
             if (!uniqueImages.has(cleanedOriginalImagePath)) {
                 const imageName = path.basename(cleanedOriginalImagePath);
                 const sourceImagePath = path.resolve(sourceDir, cleanedOriginalImagePath);
-                
+
                 const imageSubDir = path.dirname(cleanedOriginalImagePath);
                 const targetImageDir = imageSubDir === '.' ? blogImagesDir : path.join(blogImagesDir, imageSubDir);
                 await fs.ensureDir(targetImageDir);
                 const targetImagePathOnDisk = path.join(targetImageDir, imageName);
-                
+
                 const htmlPathBase = path.join('..', 'img', 'blog_images', cleanedOriginalImagePath);
                 const relativeTargetPathForHtml = htmlPathBase
-                    .replace(/\\/g, '/') 
+                    .replace(/\\/g, '/')
                     .split('/')
                     .map(segment => (segment === '..' || segment === '.') ? segment : encodeURIComponent(decodeURIComponent(segment)))
                     .join('/');
@@ -64,7 +64,7 @@ async function processMarkdown(markdownFilePath) {
                     sourceImagePath,
                     targetImagePathOnDisk,
                     rawCapturedPath, // Store the raw path for accurate regex replacement
-                    cleanedOriginalImagePath, 
+                    cleanedOriginalImagePath,
                     relativeTargetPathForHtml,
                     altText
                 });
@@ -77,7 +77,7 @@ async function processMarkdown(markdownFilePath) {
                 }
             }
         }
-        
+
         // Replace markdown image syntax with HTML <img> tags in the main rawMarkdown string
         for (const imgData of uniqueImages.values()) {
             // Use imgData.rawCapturedPath for the regex to match exactly what was in the markdown
@@ -86,7 +86,7 @@ async function processMarkdown(markdownFilePath) {
                 'g'
             );
             rawMarkdown = rawMarkdown.replace(
-                markdownImageRegexToReplace, 
+                markdownImageRegexToReplace,
                 `<img src="${imgData.relativeTargetPathForHtml}" alt="${imgData.altText}">`
             );
         }
@@ -117,6 +117,16 @@ async function processMarkdown(markdownFilePath) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${postTitle}</title>
     <link rel="stylesheet" href="../css/style.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WDRGTN66BF"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-WDRGTN66BF');
+    </script>
+
 </head>
 <body>
     <header>

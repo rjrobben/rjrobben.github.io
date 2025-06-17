@@ -91,8 +91,8 @@ header {
     left: 0;
     height: 100vh;
     width: 250px; /* Expanded width */
-    background-color: #fbfbfa; /* Paper-like light mode background */
-    box-shadow: 2px 0 5px rgba(0,0,0,0.1); /* Light mode shadow */
+    background-color: #fbfbfa;
+    box-shadow: 2px 0 5px rgba(255, 255, 255, 0.1);
     z-index: 1000;
     overflow-x: hidden; /* Hide content that overflows horizontally when collapsing */
     padding-top: 60px; /* Add padding to push content below potential fixed header elements or for spacing */

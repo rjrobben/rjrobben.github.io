@@ -40,6 +40,45 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // New code for collapsing sidebar on nav link click (mobile only)
+    const mainNav = document.getElementById('main-nav');
+    if (mainNav) {
+        const navLinks = mainNav.querySelectorAll('ul li a'); // Select only anchor links
+        // const navToggle = document.getElementById('nav-toggle'); // navToggle is already defined above
+        // const body = document.body; // body is already defined above
+        // const sidebarStateKey = 'sidebarState'; // sidebarStateKey is already defined above
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                // Check for mobile screen width AND if sidebar is expanded
+                if (window.innerWidth <= 768 && !body.classList.contains('sidebar-collapsed')) {
+                    body.classList.add('sidebar-collapsed');
+                    if (navToggle) { // Check if navToggle exists (it should as it's defined above)
+                        navToggle.setAttribute('aria-expanded', 'false');
+                    }
+                    localStorage.setItem(sidebarStateKey, 'collapsed');
+                }
+                // Note: The default action of the link (navigation) will still occur.
+            });
+        });
+    }
+
+    // New code for collapsing sidebar on click outside (mobile only)
+    document.addEventListener('click', (event) => {
+        if (window.innerWidth <= 768 && !body.classList.contains('sidebar-collapsed')) {
+            const isClickInsideNav = mainNav ? mainNav.contains(event.target) : false;
+            const isClickOnToggle = navToggle ? navToggle.contains(event.target) : false;
+
+            if (!isClickInsideNav && !isClickOnToggle) {
+                body.classList.add('sidebar-collapsed');
+                if (navToggle) {
+                    navToggle.setAttribute('aria-expanded', 'false');
+                }
+                localStorage.setItem(sidebarStateKey, 'collapsed');
+            }
+        }
+    });
+
     // Theme Toggler
     const themeToggle = document.getElementById('theme-toggle');
     // const body = document.body; // Removed duplicate declaration
