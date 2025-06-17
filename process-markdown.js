@@ -97,6 +97,19 @@ async function processMarkdown(markdownFilePath) {
         const publicationTimestamp = now.toISOString();
         const formattedPublicationDate = `${now.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })} at ${now.toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })}`;
 
+        const utterancesScript = `
+        <section class="comments-section">
+            <h2>Comments</h2>
+            <script src="https://utteranc.es/client.js"
+                    repo="rjrobben/rjrobben.github.io"
+                    issue-term="pathname"
+                    label="comment"
+                    theme="github-light"
+                    crossorigin="anonymous"
+                    async>
+            </script>
+        </section>`;
+
         const finalHtmlDocument = `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -119,6 +132,7 @@ async function processMarkdown(markdownFilePath) {
                 <li><a href="/pages/about.html">About</a></li>
                 <li><a href="/pages/projects.html">Projects</a></li>
                 <li><a href="/pages/contact.html">Contact</a></li>
+                <li><button id="theme-toggle" aria-label="Toggle theme">Dark Mode 🌕</button></li>
             </ul>
         </nav>
     </header>
@@ -129,6 +143,7 @@ async function processMarkdown(markdownFilePath) {
                 <time datetime="${publicationTimestamp}">Published on ${formattedPublicationDate}</time>
             </p>
             ${markdownHtmlContent.replace(/^<h1>.*<\/h1>\s*/i, '')}
+            ${utterancesScript}
         </article>
     </main>
     <script src="../js/main.js"></script>
