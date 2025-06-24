@@ -1,0 +1,19 @@
+# Ray's Blog
+
+> Personal blog by Ray, a software engineer specializing in machine learning and AI with a legal background. Focuses on legal research automation, AI applications in law, and technical projects combining legal expertise with modern AI technologies.
+
+Ray is currently developing LawBen, a legal research platform that aims to provide high-quality legal information to legal practitioners and law learners in Hong Kong. The blog documents technical approaches to automating legal research using RAG (Retrieval-Augmented Generation) systems, search methodologies, and machine learning techniques applied to legal domains.
+
+## Blog Posts
+
+- [Deep Research in Hong Kong Law - Part I](posts/lawben-search-methodology.html): Detailed exploration of automating legal research using RAG systems, covering relevance determination, filtering strategies, and evaluation methodologies for legal search systems
+- [The power of Recommender Systems](posts/recommender_system.html): Analysis of recommendation systems as fundamentally search problems for finding relevant data
+
+## About & Background
+
+- [About Page](pages/about.html): Information about Ray's background as a software engineer with legal expertise, current projects, and tools used
+- [Projects](pages/projects.html): Overview of current projects including LawBen (Hong Kong legal search engine) and MICLe paper implementation
+
+## Optional
+
+- [Contact Information](pages/contact.html): Ways to get in touch with Ray
