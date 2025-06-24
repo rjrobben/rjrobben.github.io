@@ -1,4 +1,4 @@
-# Ray's Blog
+# Ray 🥬 Blog
 
 > Personal blog by Ray, a software engineer specializing in machine learning and AI with a legal background. Focuses on legal research automation, AI applications in law, and technical projects combining legal expertise with modern AI technologies.
 
