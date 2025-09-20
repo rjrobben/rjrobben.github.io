@@ -6,7 +6,7 @@
 
 ## Blog Posts
 
-### [Deep Research in Hong Kong Law - Part I](lawben-search-methodology-part-1)
+### [Attempt toDeep Research in Hong Kong Law](lawben-search-methodology-part-1)
 June 15, 2025
 
 ### [The Power of Recommender Systems](power-of-recommender-system)
