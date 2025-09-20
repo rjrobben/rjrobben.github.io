@@ -9,7 +9,7 @@ I always want to automate legal research. Because (1) I always have to do it as 
 
 The existing platforms available in Hong Kong either have limited search capabilities, e.g. mere keyword search, or is incredibly difficult, slow and user-hostile to navigate. From my own experience, the results returned are a list of full cases which are either mundanely relevant or unnecessarily cumbersome to digest in today’s standard.
 
-In this article, I will outline my attempt to automate legal research, or at least, build a better alternative system than the current ones. Some of the problems I raised I do not really have a solution. I will nonetheless put them them for my future referencing purpose. 
+In this article, I will outline my attempt to automate legal research, or at least, build a better alternative system than the current ones. Some of the problems I raised I do not really have a solution. I will nonetheless put them down for my future referencing purpose. 
 
 In the era of LLM, legal research sounds like a problem [Retrieval Augmented Generation (“**RAG**“)](https://en.wikipedia.org/wiki/Retrieval-augmented_generation) can solve [This might be better solved in future with pure LLM-driven approach e.g. *Self-Retrieval:Self-Retrieval: End-to-End Information Retrieval with One Large Language Model* . But as of the date of writing, retraining the LLM whenever a case is handed down or a legislation is updated is not quite sensible in terms of costs.](sidenote).
 
