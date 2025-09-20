@@ -2,8 +2,6 @@
 ## Ray Yip
 Published @ June 15, 2025 at 7:39 PM HKT
 
-Updated @ September 20, 2025 at 21:01:03 HKT 
-
 
 ## Introduction
 
