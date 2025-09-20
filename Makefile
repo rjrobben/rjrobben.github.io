@@ -15,15 +15,24 @@
 #
 ## Simple Makefile for Markdown → HTML (recursive) with special home target
 
-MD_FILES := $(wildcard *.md *.markdown)
+MD_FILES := $(wildcard *.md)
 HTML_FILES := $(MD_FILES:.md=.html)
-HTML_FILES := $(HTML_FILES:.markdown=.html)
 
 # Default target: build every HTML (including index.html via explicit rule)
 all: $(HTML_FILES)
 
 # Special “home” target for index.md without TOC
 home: index.html
+
+# no-toc:
+# 	@if [ -z "$(FILE)" ]; then \
+# 		echo "Usage: make no-toc FILE=<filename.md>"; \
+# 		exit 1; \
+# 	fi; \
+# 	cmark -t xml "$(FILE)" \
+# 	| xsltproc --novalid --nonet \
+#             --stringparam generate.toc no xmark.xsl - \
+# 	> "$$(basename "$(FILE)" .md).html"
 
 index.html: index.md
 	cmark -t xml "index.md" \
@@ -32,15 +41,21 @@ index.html: index.md
         > "index.html"
 
 # Generic rules for other Markdown files
+#
 %.html: %.md
-	cmark -t xml "$<" \
-        | xsltproc --novalid --nonet xmark.xsl - \
-        > "$@"
+	@grep -q '^##' "$<" && \
+		cmark -t xml "$<" | xsltproc --novalid --nonet xmark.xsl - > "$@" || \
+		cmark -t xml "$<" | xsltproc --novalid --nonet --stringparam generate.toc no xmark.xsl - > "$@"
 
-%.html: %.markdown
-	cmark -t xml "$<" \
-        | xsltproc --novalid --nonet xmark.xsl - \
-        > "$@"
+# %.html: %.md
+# 	cmark -t xml "$<" \
+#         | xsltproc --novalid --nonet xmark.xsl - \
+#         > "$@"
+#
+# %.html: %.markdown
+# 	cmark -t xml "$<" \
+#         | xsltproc --novalid --nonet xmark.xsl - \
+#         > "$@"
 
 .PHONY: all home clean
 
