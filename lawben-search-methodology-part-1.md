@@ -28,8 +28,9 @@ In our context, we just need to copy the relevant legal principles from a corpus
 
 Probably not. When the pool of documents [pool of documents = Case Law + Legislations in Hong Kong. ~ 150k+ Case Law (~0.5 billion tokens) and ~300k+ legislative sections.](sidenote)  is large, deciding what is relevant becomes a hard problem.
 
-![[Signals used by google.](https://www.google.com/intl/en_us/search/howsearchworks/how-search-works/ranking-results/)](2025-09-20_21-12-06.png "margin google") 
-Similarity search with vector embedding is the default position for most RAG system. But, you will note that embedding search has not yet replaced Google. Google will have for sure integrated it, but their search engine is not just built on a vector database.
+Similarity search with vector embedding is the default position for most RAG system. But, you will note that embedding search has not yet replaced Google. 
+
+Google will have for sure integrated it, but their search engine is not just built on a vector database.
 
 
 There are several functional and non-functional reasons:
