@@ -174,7 +174,7 @@ However, in my opinion the trie based Semantic IDs concept is inspiring:
 
 In this article, I have discussed the problem I want to solve in legal research and outlined my research and approach to the problem. Some of the features have already been implemented in [JIST](https://chat.jist.space/landing), feel free to have a try.
 
-If you have any thoughts on some of the problems I have raised in this article, your comments / contacts are most welcomed 😃.
+If you have any thoughts on some of the problems I have raised in this article, your comments or DMs are most welcomed 😃.
 
 ___
 
