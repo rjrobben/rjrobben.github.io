@@ -1,6 +1,8 @@
-## LawBen
+# My projects
 
-A search engine for Hong Kong Cases and Ordinances, allowing users to search through natural language queries. Currently under development. Visit the temporary prototype at [link](https://chat.jist.space/).
+## JIST 
+
+A LLM-powered search engine for Hong Kong Cases, allowing users to interact with Case Law in Hong Kong with natural language queries. Visit the app at [link](https://chat.jist.space/landing).
 
 ## MICLe paper implementation
 

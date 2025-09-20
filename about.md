@@ -1,4 +1,4 @@
-## About Me
+# About me
 
 I am a software engineer, specialising in machine learning and AI, with background in law. I like to learn new things and I wish I am better at sharing interesting things to others. That's why I start this personal website + blog.
 
@@ -8,7 +8,7 @@ It's going to be a big corp llm wrapper at the moment, because currently I do no
 
 But hey, Cursor and Perplexity AI are also gpt wrappers! I hope I can bring tool of similar utility to the hand of legal practitioners in HK.
 
-## Things I use
+**Things I use**
 
 -   whoop, a wrist band which tracks my sleep.
 -   clojure, a programming language that i like because of the REPL interactivity.
