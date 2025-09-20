@@ -12,7 +12,7 @@ Now, I understand RAG in simple language as:
 >> A system that automatically CTRL-C and CTRL-V something relevant to the question and pass them to LLM for answer generation.
 
 
-![[blog/2025-09-20_12-13-29.png]]
+![](2025-09-20_12-13-29.png)
 
 
 
@@ -25,8 +25,8 @@ Similarity search with vector embedding is the default position for most RAG sys
 
 1.  performance issue,
 2.  cost issue and
-3.  that useful information retrieval is a complex field full of nuances [note [the Theoretical Limitations of
-Embedding-Based Retrieval](https://arxiv.org/pdf/2508.21038v1)](sidenote).
+3.  that useful information retrieval is a complex field full of nuances [note the paper * On Theoretical Limitations of
+Embedding-Based Retrieval*](sidenote).
 
 ## The Problem Statement
 
@@ -44,24 +44,24 @@ Relevance is multi-dimensional. Assume you carry with you 40g of cocaine, wishin
 
 A case can be relevant to your question for various reasons, and on different dimensions:
 
-1.  The age of the offender in that case is similar to you.
-2.  It sets out the latest sentencing guideline for TDD in cocaine.
-3.  It ruled on the general approach in determining sentence for TDD.
-4.  It sets out mitigating factors for reducing sentence generally.
-5.  It applied one of the mitigating factors present in your case.
-6.  It discussed aggravating factors for increasing sentence generally.
-7.  ...
+1. The age of the offender in that case is similar to you.
+2. It sets out the latest sentencing guideline for TDD in cocaine.
+3. It ruled on the general approach in determining sentence for TDD.
+4. It sets out mitigating factors for reducing sentence generally.
+5. It applied one of the mitigating factors present in your case.
+6. It discussed aggravating factors for increasing sentence generally.
+7. ...
 
 Usually, my search strategy would look something like the following:
 
-1.  Use keywords (e.g. the offence itself) to get a bunch of TDD sentence judgments.
-2.  Get a general idea of the sentence range by scanning through the cases.
-3.  Stumble across a longer case which looks like a key case of the offence.
-4.  Take note.
-5.  Scans which case resembles the client’s case at hand, based on different criteria listed above.
-6.  Check them out.
-7.  Dig out some more cases cited in cases collected so far.
-8.  Refine my search based on what I know so far.
+1. Use keywords (e.g. the offence itself) to get a bunch of TDD sentence judgments.
+2. Get a general idea of the sentence range by scanning through the cases.
+3. Stumble across a longer case which looks like a key case of the offence.
+4. Take note.
+5. Scans which case resembles the client’s case at hand, based on different criteria listed above.
+6. Check them out.
+7. Dig out some more cases cited in cases collected so far.
+8. Refine my search based on what I know so far.
 
 “What is relevant” cannot usually be determined with one single search. Instead, multiple search with different purposes has to be performed, which can be tedious to perform.
 
@@ -69,18 +69,18 @@ Usually, my search strategy would look something like the following:
 
 To simulate the the human search. There are five main components that I can think of:
 
-1.  keyword search
-2.  semantic search
-3.  filtering
-4.  LLM to use (1) and (2) and (3)
-5.  an orchestration framework that search incrementally
+1. keyword search
+2. semantic search
+3. filtering
+4. LLM to use (1) and (2) and (3)
+5. an orchestration framework that search incrementally
 
 Taking references from different deep research workflows proposed by a number of interesting projects, for example:
 
 ![Image from Jina.ai, which I come across at [The Differences between Deep Research, Deep Research, and Deep Research](https://leehanchung.github.io/blogs/2025/02/26/deep-research/)](2025-09-20_12-15-39.png)
 
 
-![Image from Anthropic at [Muti-Agent Research System](https://www.anthropic.com/engineering/built-multi-agent-research-system)](https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F1198befc0b33726c45692ac40f764022f4de1bf2-4584x2579.png&w=3840&q=75 “anthropic image”)
+![Image from Anthropic at Muti-Agent Research System](https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F1198befc0b33726c45692ac40f764022f4de1bf2-4584x2579.png&w=3840&q=75 “anthropic image”)
 
 
 ## Eval-first
@@ -115,7 +115,7 @@ _Filter by Tag_ by only picking cases with tag matching the target topic, judgme
 
 But someone has to come up with the tags. Generating accurate and meaningful tag is feasible with LLM but relatively slow. Suppose it would take at least ~10s for 1 case to generate high-quality metadata. Now, 100K case means 1M seconds = 11 days, if performed consecutively!
 
-![The giant table of content](blog/2025-09-20_12-18-19.png “taxonomy viewer”)
+![The giant table of content](2025-09-20_12-18-19.png “taxonomy viewer”)
 
 
 [_Semantic IDs_](https://arxiv.org/abs/2306.08121) is an interesting approach explored by Google Deepmind for Youtube’s recommendation system. It is not exactly related to filtering but my intuition convinced me it seems relevant. 
@@ -124,9 +124,10 @@ A semantic ID is a compact numerical sequence representation of an item’s hier
 
 This is useful for a stage 2 training, which uses the Semantic IDs as the inputs to train another model which learn user behaviors. An IDs based approach captured the semantic learning while addressed the problem of lack of memorization ability (i.e. to remember a particular video is revealing to certain group of users) of content-based embedding (not as unique as ID). 
 
-![[blog/2025-08-05_14-26-07.png]]
+![Image 1 from the linked paper](2025-08-05_14-26-07.png)
 
-![Image from the linked paper](blog/2025-09-20_12-18-53.png “paper link”)
+![Image 2 from the linked paper](2025-09-20_12-18-53.png “paper link”)
+
 
 The problem of Semantic IDs approach in our use case is that it is designed for item-to-item comparison; whereas what our use case needs is a query-to-item mapping. Even the semantic IDs are in place, the question of how do we map the query to the semantic IDs space remains unresolved.
 

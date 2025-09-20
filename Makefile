@@ -15,11 +15,9 @@
 #
 ## Simple Makefile for Markdown → HTML (recursive) with special home target
 
-# Find all .md and .markdown files
-MD_FILES := $(shell find . -type f \( -name '*.md' -o -name '*.markdown' \))
-
-# Derive corresponding .html targets
-HTML_FILES := $(patsubst %.md,%.html,$(patsubst %.markdown,%.html,$(MD_FILES)))
+MD_FILES := $(wildcard *.md *.markdown)
+HTML_FILES := $(MD_FILES:.md=.html)
+HTML_FILES := $(HTML_FILES:.markdown=.html)
 
 # Default target: build every HTML (including index.html via explicit rule)
 all: $(HTML_FILES)
