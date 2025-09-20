@@ -16,7 +16,7 @@ Now, I understand RAG in simple language as:
 >> A system that automatically CTRL-C and CTRL-V something relevant to the question and pass them to LLM for answer generation.
 
 
-![An illustration of the RAG flow](2025-09-20_12-13-29.png)
+![An illustration of the RAG flow.](2025-09-20_12-13-29.png)
 
 
 
@@ -44,7 +44,7 @@ But the question is: what is relevant?
 
 Relevance is multi-dimensional. Assume you carry with you 40g of cocaine, wishing to sell your friend in Thailand, get caught in the HK airport and are charged with Trafficking in Dangerous Drugs (“**TDD**“). You are now worrying how long you might have to spend on jail.
 
-![from *breaking bad*](https://media.newyorker.com/photos/590954696552fa0be682cb13/master/w_1920,c_limit/breaking-bad-meth.jpg)
+![from *breaking bad*.](https://media.newyorker.com/photos/590954696552fa0be682cb13/master/w_1920,c_limit/breaking-bad-meth.jpg)
 
 A case can be relevant to your question for various reasons, and on different dimensions:
 
@@ -84,10 +84,10 @@ To simulate the the human search. There are five main components that I can thin
 
 Taking references from different deep research workflows proposed by a number of interesting projects, for example:
 
-![Image from Jina.ai, which I come across at [The Differences between Deep Research, Deep Research, and Deep Research](https://leehanchung.github.io/blogs/2025/02/26/deep-research/)](2025-09-20_12-15-39.png)
+![Image from Jina.ai, which I come across at [The Differences between Deep Research, Deep Research, and Deep Research](https://leehanchung.github.io/blogs/2025/02/26/deep-research/).](2025-09-20_12-15-39.png)
 
 
-![Image from Anthropic at Muti-Agent Research System](https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F1198befc0b33726c45692ac40f764022f4de1bf2-4584x2579.png&w=3840&q=75)
+![Image from Anthropic at [Muti-Agent Research System](https://www.anthropic.com/engineering/multi-agent-research-system)](https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F1198befc0b33726c45692ac40f764022f4de1bf2-4584x2579.png&w=3840&q=75)
 
 
 ## Eval-first
@@ -122,7 +122,7 @@ There are multiple approaches for efficient filtering that has come to my knowle
 1. Filter by Tag
 2. Semantic IDs
 
-![A giant table of content](2025-09-20_12-18-19.png "margin taxonomy image")
+![A giant table of content.](2025-09-20_12-18-19.png "margin taxonomy image")
 
 _Filter by Tag_ by only picking cases with tag matching the target topic, judgment type, court or offence.
 
@@ -135,9 +135,9 @@ A semantic ID is a compact numerical sequence representation of an item’s hier
 
 This is useful for a stage 2 training, which uses the Semantic IDs as the inputs to train another model which learn user behaviors. An IDs based approach captured the semantic learning while addressed the problem of lack of memorization ability (i.e. to remember a particular video is revealing to certain group of users) of content-based embedding (not as unique as ID). 
 
-![Image 1 from the linked paper](2025-08-05_14-26-07.png)
+![Image 1 from the linked paper.](2025-08-05_14-26-07.png)
 
-![Image 2 from the linked paper](2025-09-20_12-18-53.png)
+![Image 2 from the linked paper.](2025-09-20_12-18-53.png)
 
 
 The problem of Semantic IDs approach in our use case is that it is designed for item-to-item comparison; whereas what our use case needs is a query-to-item mapping. Even the semantic IDs are in place, the question of how do we map the query to the semantic IDs space remains unresolved.
