@@ -83,7 +83,7 @@ Usually, a common search strategy would look something like the following:
 
 ## Proposed System
 
-To simulate the human search. There are five main components that I can think of:
+To simulate the human search. There are three main components that I can think of:
 
 1. A set of tools that perform different types of search
      - semantic search
