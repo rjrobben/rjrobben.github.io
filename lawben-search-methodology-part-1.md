@@ -123,7 +123,7 @@ In practice, I went with the Google Sheet approach outlined [here](https://x.com
 One of the limitations of vector search is that the bigger the search pool, the harder to retrieve relevant result.
 
 
-![An intuitive but naive explanation is that the bigger the document pool, the set of relevant documents become a smaller fraction of the total pool, and get easily crowded out by other marginally relevant results. Naive because we did not consider dimensionality, combinations of relevance, the representation capacity of en embedding model...etc](2025-09-20_12-17-52.png)
+![An intuitive but naive explanation is that the bigger the document pool, the set of relevant documents become a smaller fraction of the total pool, and get easily crowded out by other marginally relevant results. *naive* because we did not consider dimensionality, combinations of relevance, the representation capacity of en embedding model ...etc.](2025-09-20_12-17-52.png)
 
 
 The strategy we use to mitigate such limitation is simple: filtering. Based on the query or user input, the first step we should do is to narrow down the search space [Another approach could be to boost the discriminative power of the embedding model with data. Pure ml approach. Problem: need ample gpu resources and high quality dataset. We will see if we can do this later.](sidenote).
