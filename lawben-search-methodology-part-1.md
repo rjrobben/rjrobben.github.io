@@ -30,8 +30,8 @@ Probably not. When the pool of documents [pool of documents = Case Law + Legisla
 
 Similarity search with vector embedding is the default position for most RAG system. But, you will note that embedding search has not yet replaced Google. 
 
-
 ![[Signals used by google.](https://www.google.com/intl/en_us/search/howsearchworks/how-search-works/ranking-results/)](2025-09-20_21-12-06.png "margin google") 
+
 Google will have for sure integrated it, but their search engine is not just built on a vector database.
 
 
@@ -47,6 +47,8 @@ Embedding-Based Retrieval*](margin).
 Any legal advice to me begins with a search problem. Given any legal related problem, the first part of the problem solving process is always finding which legal principles are relevant.
 
 Lawyers will call this as identifying the issues. The first step is always identifying the relevant legal frameworks, before that no meaningful legal or factual issues can be laid out.
+
+The problem is hence simple: given a legal question, return the relevant laws. 
 
 But the question is: what is relevant?
 
@@ -82,7 +84,7 @@ Usually, a common search strategy would look something like the following:
 
 ## Proposed System
 
-To simulate the the human search. There are five main components that I can think of:
+To simulate the human search. There are five main components that I can think of:
 
 1. A set of tools that perform different types of search
      - semantic search
