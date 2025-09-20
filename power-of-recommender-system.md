@@ -1,5 +1,5 @@
 # The power of Recommender Systems
-Published on August 15, 2024 at 11:46 PM HKT
+Published @ August 15, 2024 at 11:46 PM HKT
 
 The most popular and successful apps like Instagram, YouTube, Threads, Twitter/X, TikTok, and Spotify all share a common feature: a powerful recommender system. All your feeds are arranged by recommendation algorithms operating on large-scale datasets behind the scenes.
 
