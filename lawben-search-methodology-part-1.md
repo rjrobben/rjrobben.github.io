@@ -80,7 +80,7 @@ Taking references from different deep research workflows proposed by a number of
 ![Image from Jina.ai, which I come across at [The Differences between Deep Research, Deep Research, and Deep Research](https://leehanchung.github.io/blogs/2025/02/26/deep-research/)](2025-09-20_12-15-39.png)
 
 
-![Image from Anthropic at Muti-Agent Research System](https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F1198befc0b33726c45692ac40f764022f4de1bf2-4584x2579.png&w=3840&q=75 “anthropic image”)
+![Image from Anthropic at Muti-Agent Research System](https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F1198befc0b33726c45692ac40f764022f4de1bf2-4584x2579.png&w=3840&q=75)
 
 
 ## Eval-first
@@ -95,21 +95,21 @@ Curating high quality evaluation dataset is costly. But, ~100 data points can al
 
 The evaluation method I chose is the [Nugget Recall](https://arxiv.org/pdf/2504.15068). In simple terms, nugget is an atomic fact that should be included in an answer. Hence, we can measure the performance by counting how many “nuggets” an answer to a query contains compared to the standard list of nuggets curated by expert that should appear in relation to a query.
 
-![Image from the linked paper.](blog/2025-09-20_12-17-31.png “recall image”)
+![Image from the linked paper.](2025-09-20_12-17-31.png)
 
 ## Filtering
 
 The limitation of vector similarity search is that the bigger the search pool, the harder to retrieve relevant result.
 
-![An intuitive explanation is that the bigger the document pool, the set of relevant documents become a smaller fraction of the total pool, and get easily crowded out by other marginally relevant results.](blog/2025-09-20_12-17-52.png “filter image”)
+![An intuitive explanation is that the bigger the document pool, the set of relevant documents become a smaller fraction of the total pool, and get easily crowded out by other marginally relevant results.](2025-09-20_12-17-52.png)
 
 
 The strategy we use to mitigate such limitation is simple: filtering [Another approach is to boost the discriminative power of the embedding model over a larger set of documents. Pure ml approach. Problem: need ample gpu resources and high quality dataset. We will see if we can do this later.](sidenote). Based on the query or user input, the first step we should do is to narrow down the search space.
 
 There are multiple approaches for efficient filtering that has come to my knowledge:
 
-1.  Filter by Tag
-2.  Semantic IDs
+1. Filter by Tag
+2. Semantic IDs
 
 _Filter by Tag_ by only picking cases with tag matching the target topic, judgment type, court or offence.
 
