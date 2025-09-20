@@ -12,6 +12,6 @@ But hey, Cursor and Perplexity AI are also gpt wrappers! I hope I can bring tool
 
 -   whoop, a wrist band which tracks my sleep.
 -   clojure, a programming language that i like because of the REPL interactivity.
--   SilverBullet, a offline-ready minimalist text editor and notepad.
+-   SilverBullet, an offline-ready minimalist text editor and notepad.
 -   VS Code, for vibe coding.
--   nvim, for programming.
+-   nvim, for real programming 🤓.
