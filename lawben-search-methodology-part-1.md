@@ -106,7 +106,8 @@ I am sold by [Eugene Yan](https://eugeneyan.com/writing/llm-patterns/#retrieval-
 
 >> Building solid evals should be the starting point for any LLM-based system or product.
 >> <footer>Eugene Yan</footer>
- 
+
+The reason is simple. You get more informed feedback when you are nudging the system. It’s easier and more accurate to perform all sorts of testing e.g. A/B testing with a well-crafted evaluation dataset that roughly represents the input the system might encounter.
 
 Curating high quality evaluation dataset is costly. But, ~100 data points can already provide a less subjective evaluation of the system.
 
