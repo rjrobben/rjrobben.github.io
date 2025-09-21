@@ -5,7 +5,7 @@ Published @ June 15, 2025 at 7:39 PM HKT
 
 ## Introduction
 
-I always want to automate legal research. Because (1) I always have to do it as a legal student and (2) people often ask me about their legal problems which law school simply doesn't teach.
+I always want to automate legal research. Because (1) I always have to do it as a law student and (2) people often ask me about their legal problems which law school simply doesn't teach.
 
 The existing platforms available in Hong Kong either have limited search capabilities, e.g. mere keyword search, or is incredibly difficult, slow and user-hostile to navigate. From my own experience, the results returned are a list of full cases which are either mundanely relevant or unnecessarily cumbersome to digest in today’s standard.
 
@@ -51,7 +51,7 @@ The problem is hence simple: given a legal question, return the relevant laws.
 
 But the question is: what is relevant?
 
-## What is relevant?
+### What is relevant?
 
 Relevance is multi-dimensional. Assume you carry with you 40g of cocaine, wishing to sell your friend in Thailand, get caught in the HK airport and are charged with Trafficking in Dangerous Drugs (“**TDD**“). You are now worrying how long you might have to spend on jail.
 
@@ -111,7 +111,7 @@ I am sold by [Eugene Yan](https://eugeneyan.com/writing/llm-patterns/#retrieval-
 >> Building solid evals should be the starting point for any LLM-based system or product.
 >> <footer>Eugene Yan</footer>
 
-The reason is simple. You get more informed feedback when you are nudging the system. It’s easier and more accurate to perform all sorts of testing e.g. A/B testing with a well-crafted evaluation dataset that roughly represents the input the system might encounter.
+The reason is simple. You get more informed feedback when you are nudging the system. It’s easier and more accurate to perform all sorts of testing e.g. A/B testing, with a well-crafted evaluation dataset that roughly represents the input the system might encounter.
 
 Curating high quality evaluation dataset is costly. But, ~100 data points can already provide a less subjective evaluation of the system.
 
@@ -175,6 +175,6 @@ In this article, I have discussed the problem I want to solve in legal research 
 
 If you have any thoughts on some of the problems I have raised in this article, your comments or DMs are most welcomed 😃.
 
-___
 
+last updated: September 21, 2025 at 22:24:26 HKT
     
