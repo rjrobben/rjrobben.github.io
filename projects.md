@@ -1,18 +1,14 @@
 # My projects
-## Ray Yip
 
 A list of personal projects that I have worked on.
 
-## Big Projects
+**Big Projects**
 
 ### [JIST](https://chat.jist.space/landing) 
 
 A LLM-powered search engine for Hong Kong case, allowing users to interact with the law of Hong Kong.
 
-## Small Projects
-
-
-## Vibe-coded projects
+**Vibe-coded projects**
 
 ### [Lecture Viewer](https://rjrobben.github.io/lecture-viewer)
 
@@ -21,9 +17,3 @@ A simple web app for viewing lectures on desktop. Support searching the subtitle
 ### [Bayesian Thinker](https://rjrobben.github.io/bayesian-thinker)
 
 A simple logging desktop web app for logging predictions with bayesian way of estimating probabilities supporting evidence in mind.
-
-
-
-
-
-## 
