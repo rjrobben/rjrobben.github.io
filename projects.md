@@ -1,6 +1,8 @@
 # My projects
 ## Ray Yip
 
+A list of personal projects that I have worked on.
+
 ## Big Projects
 
 ### [JIST](https://chat.jist.space/landing) 
