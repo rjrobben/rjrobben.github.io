@@ -83,7 +83,7 @@ Usually, a common search strategy would look something like the following:
 
 ## Proposed System
 
-To simulate the human search. There are three main components that I can think of:
+There are three main components that I can think of:
 
 1. A set of tools that perform different types of search
      - semantic search
@@ -91,20 +91,18 @@ To simulate the human search. There are three main components that I can think o
      - search by citation
      - ...
 3. Filtering to cut down the search space
-5. A simple workflow that *maps* queries from slightly different perspective and *reduces* them into a condensed summary. 
+5. A simple workflow that generates queries, *maps* queries for performing search and *reduces* them into a condensed summary. 
 
-Taking references from different deep research workflows proposed by a number of interesting projects, for example:
+While there are different deep research workflows proposed by a number of interesting projects 
 
-![Image from Jina.ai, which I come across at [The Differences between Deep Research, Deep Research, and Deep Research](https://leehanchung.github.io/blogs/2025/02/26/deep-research/).](2025-09-20_12-15-39.png)
+![Image from Jina.ai, which I come across at [The Differences between Deep Research, Deep Research, and Deep Research](https://leehanchung.github.io/blogs/2025/02/26/deep-research/).](2025-09-20_12-15-39.png “margin jina”)
 
 
-![Image from Anthropic at [Muti-Agent Research System](https://www.anthropic.com/engineering/multi-agent-research-system)](https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F1198befc0b33726c45692ac40f764022f4de1bf2-4584x2579.png&w=3840&q=75)
+![Image from Anthropic at [Muti-Agent Research System](https://www.anthropic.com/engineering/multi-agent-research-system)](https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F1198befc0b33726c45692ac40f764022f4de1bf2-4584x2579.png&w=3840&q=75 “margin antrhopic”)
 
-These seemingly complex agentic workflows purport to capture the multi-dimensional nature of the aforementioned *what is relevant* problem.
+and these seemingly complex agentic workflows seem to capture the multi-dimensional nature of the aforementioned what is relevant problem, I am not fully convinced by the heated “LLM AI agents” paradigm nowadays. With LLM’s non-deterministic nature they usually fail at long horizon tasks. Nonetheless, a simple and short workflow, which query the database from different perspective, aggregate and summarize the results, may actually assist Not replace. legal practitioners effectively.
 
-I am not fully convinced by the heated “LLM AI agents” paradigm nowadays. With LLM’s non-deterministic nature they usually fail at long horizon tasks. Nonetheless, a simple and short workflow, which query the database from different perspective, aggregate and summarize the results, may actually assist [Not replace.](sidenote) legal practitioners effectively.
-
-## Eval-first
+### Eval-first
 
 I am sold by [Eugene Yan](https://eugeneyan.com/writing/llm-patterns/#retrieval-augmented-generation-to-add-knowledge) that evaluation is important for the quality of the system.
 
@@ -122,7 +120,7 @@ One of the interesting evaluation method I came across is the [Nugget Recall](ht
 In practice, I went with the Google Sheet approach outlined [here](https://x.com/skylar_b_payne/status/1958352532193091742/photo/1) as a quick start.
 
 
-## Filtering
+### Filtering
 
 One of the limitations of vector search is that the bigger the search pool, the harder to retrieve relevant result.
 
