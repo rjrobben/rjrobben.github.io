@@ -95,10 +95,10 @@ There are three main components that I can think of:
 
 While there are different deep research workflows proposed by a number of interesting projects 
 
-![Image from Jina.ai, which I come across at the article: *The Differences between Deep Research, Deep Research, and Deep Research*.](2025-09-20_12-15-39.png “margin jina”)
+![Image from Jina.ai, which I come across at [The Differences between Deep Research, Deep Research, and Deep Research](https://leehanchung.github.io/blogs/2025/02/26/deep-research/).](2025-09-20_12-15-39.png "margin jina")
 
 
-![Image from Anthropic at *Muti-Agent Research System*](https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F1198befc0b33726c45692ac40f764022f4de1bf2-4584x2579.png&w=3840&q=75 “margin anthropic”)
+![Image from Anthropic at [Muti-Agent Research System](https://www.anthropic.com/engineering/multi-agent-research-system)](https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F1198befc0b33726c45692ac40f764022f4de1bf2-4584x2579.png&w=3840&q=75 "margin anthropic")
 
 and these seemingly complex agentic workflows seem to capture the multi-dimensional nature of the aforementioned what is relevant problem, I am not fully convinced by the heated “LLM AI agents” paradigm nowadays. With LLM’s non-deterministic nature they usually fail at long horizon tasks. Nonetheless, a simple and short workflow, which query the database from different perspective, aggregate and summarize the results, may actually assist [Not replace.](sidenote) legal practitioners effectively.
 
