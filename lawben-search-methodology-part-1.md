@@ -99,7 +99,7 @@ There are three main components that I can think of:
 
 While there are different deep research workflows proposed by a number of interesting projects and these seemingly complex agentic workflows seem to capture the multi-dimensional nature of the aforementioned what is relevant problem, I am not fully convinced by the heated “LLM AI agents” paradigm nowadays. 
 
-With LLM’s non-deterministic nature they usually fail at long horizon tasks. Nonetheless, a simple and short workflow, which query the database from different perspective, aggregate and summarize the results, may actually assist Not replace. legal practitioners effectively.
+With LLM’s non-deterministic nature they usually fail at long horizon tasks. Nonetheless, a simple and short workflow, which query the database from different perspective, aggregate and summarize the results, may actually assist legal practitioners effectively.
 
 ### Eval-first
 
