@@ -10,7 +10,7 @@ The friction to perform a new exciting task is so small (just cmd-tab / cmd-t) t
 
 I don’t understand why all major OS and browsers are designed like this. To stay focus, switching to other apps should be extremely hard. 
 
-Think a game. Can you quit easily and perform other tasks? No. Instead, you have a super clean quest system, inventory system ..etc. And, they are simply slider or drawer that you can quickly show and hide them. They are not intended to capture your attention. 
+Think a game. Apart from the immersive environment and captivating mechanics, you have a super clean quest system, inventory system ..etc. These auxiliary menus are simply slider or drawer that you can quickly show and hide them. They are not intended to capture your attention [Of course, game/social media/anime is designed to be entertaining, while work is not. But the point is work should also be designed to encourage and facilitate “flow”.](sidenote).
 
 The OS that I imagine looks like something as follow:
 I have 4 projects in the quest system. Clicking into one of them will show all the tasks I defined. I can click the task I want to focus on, and add all the apps I need, e.g.:
