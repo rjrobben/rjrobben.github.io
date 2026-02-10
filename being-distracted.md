@@ -19,24 +19,5 @@ I have 4 projects in the quest system. Clicking into one of them will show all t
 
 Then, I click “do quest”, and i can’t go outside these apps until the session’s time’s up.
 
-Why?
 
-Because the consequence of being distracted is not worth it.
-- you can’t sustain attention on something until rewards pay off
-- affect your hormone → bad mood
-- makes you stick to the screen → strain on your eyes, neck and waist and spine → negative impact on your health and energy level.
-- lower your awareness and you are more vulnerable to being distracted.
-- a vicious cycle.
-- your life will be miserable.
-
-You wanna spend each day in flow state or in muddy-social-media- distracted state? 
-
-Pick activity that requires flow-state and might have exponential / compounding positive effect on your life, albeit difficult to start at first:
-- exercise (I picked yoga as it can be done solo without much external dependencies) 
-- writing
-- solving problems
-- meditation
-- drawing
- 
-It’s time to change.
 
